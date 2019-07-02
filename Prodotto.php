@@ -1,25 +1,21 @@
 <?php
 
 //creo classe prodotto
-class prodotto {
+class Prodotto {
 
   //informazioni prodotto
+  //variabili d'istanze
   public $nome;
   public $produttore;
-  public $scadenza;
   public $posizione;
   public $prezzo;
+  public $id;
 
-  public function __construct($_nome, $_produttore, $_scadenza, $prezzo){
+  function __construct($_nome, $_produttore, $prezzo){
     //no dollaro nella variabile
     $this->nome = $_nome;
     $this->produttore = $_produttore;
-    $this->scadenza = $_scadenza;
     $this->prezzo = 'euro '.$prezzo;
-  }
-
-  public function getNome(){
-    return $this->nome;
   }
 
 }

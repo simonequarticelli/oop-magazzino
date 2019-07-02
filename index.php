@@ -3,25 +3,30 @@ usando i concetti di classi ed ereditarietà visti oggi a lezione. -->
 
 <?php
 
-require_once 'prodotto.php';
-require_once 'promozione.php';
+//prodotto include Latte
+require_once 'Prodotto.php';
+require_once 'Latte.php';
 
 //istanza latte della classe prodotto
-$latte = new prodotto('latte', 'parmalat', '01-01-2021', 2);
+//creo un oggetto ti tipo computer
+$latte = new Prodotto('latte', 'parmalat', 2);
 
-echo 'nome prodotto: '.$latte->getNome().'<br>';
-echo 'produttore: '.$latte->produttore.'<br>';
-echo 'data scandenza: '.$latte->scadenza.'<br>';
-echo 'prezzo: '.$latte->prezzo.'<br>';
+print_r($latte);
+
+// per accedere "->"
+
+echo '<pre>';
+// echo 'nome prodotto: '.$latte->nome.'<br>';
+// echo 'produttore: '.$latte->produttore.'<br>';
+// echo 'prezzo: '.$latte->prezzo.'<br>';
 
 //istanza latte_promo dell'estensione promozione della classe prodotto
-$latte_promo = new promozione();
+$latte_promo = new Latte('01-01-2021');
 
-$latte_promo->sconto = 20;
-
+print_r($latte_promo);
 //provo a eseguire la funzione
 try {
-  echo $latte_promo->calcolaSconto();
+  echo $latte_promo->calcolaSconto(20);
 //nel caso non siano due numeri stampo il messaggio impostato come errore
 } catch (\Exception $e) {
   echo 'Eccezione: ' . $e->getMessage();
